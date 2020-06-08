@@ -34,6 +34,9 @@
 		20D558C8248E3B7800CA080D /* WeatherAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		20D558CC248E3B7800CA080D /* WeatherAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppTests.swift; sourceTree = "<group>"; };
 		20D558CE248E3B7800CA080D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		20D558DE248E45C100CA080D /* PTSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PTSans-Regular.ttf"; sourceTree = "<group>"; };
+		20D558DF248E46D500CA080D /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
+		20D558E0248E46D500CA080D /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 		317764D7D7CEA30EA679D824 /* Pods-WeatherApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherApp.debug.xcconfig"; path = "Target Support Files/Pods-WeatherApp/Pods-WeatherApp.debug.xcconfig"; sourceTree = "<group>"; };
 		46E3B928483EE9DC8D4D1250 /* Pods_WeatherApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FE6B883D48862064F37019C /* Pods_WeatherAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +108,7 @@
 		20D558B4248E3B7600CA080D /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				20D558B5248E3B7600CA080D /* AppDelegate.swift */,
 				20D558D7248E3CAA00CA080D /* Application */,
 				20D558D8248E3CB300CA080D /* Configuration */,
 			);
@@ -123,7 +127,6 @@
 		20D558D7248E3CAA00CA080D /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				20D558B5248E3B7600CA080D /* AppDelegate.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -131,11 +134,30 @@
 		20D558D8248E3CB300CA080D /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
+				20D558DC248E438C00CA080D /* Resources */,
 				20D558C0248E3B7800CA080D /* LaunchScreen.storyboard */,
-				20D558BE248E3B7800CA080D /* Assets.xcassets */,
 				20D558C3248E3B7800CA080D /* Info.plist */,
 			);
 			path = Configuration;
+			sourceTree = "<group>";
+		};
+		20D558DC248E438C00CA080D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				20D558DD248E43A500CA080D /* Fonts */,
+				20D558BE248E3B7800CA080D /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		20D558DD248E43A500CA080D /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				20D558DE248E45C100CA080D /* PTSans-Regular.ttf */,
+				20D558E0248E46D500CA080D /* Lato-Bold.ttf */,
+				20D558DF248E46D500CA080D /* Lato-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
