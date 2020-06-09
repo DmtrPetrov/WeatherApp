@@ -32,10 +32,13 @@ class MainViewModel {
     private let weatherInfo = PublishRelay<WeatherInfo>()
     
     private var networkManager: NetworkManager
+    private var locationManager: LocationManager
     private var disposeBag = DisposeBag()
     
-    init(with networkManager: NetworkManager = .init()) {
+    init(with networkManager: NetworkManager = .init(),
+         and locationManager: LocationManager = .init()) {
         self.networkManager = networkManager
+        self.locationManager = locationManager
         setupBindings()
         
         getWeatherInfo()
@@ -70,6 +73,16 @@ extension MainViewModel {
         
         getWeatherInfo(for: location, with: units)
             .do(onNext: { [weak self] _ in self?.resetTopViews() })
+            .bind(to: weatherInfo)
+            .disposed(by: disposeBag)
+    }
+    
+    func didTapMyLocation() {
+        getCurrentLocation()
+            .compactMap { $0 }
+            .flatMap { [unowned self] in
+                self.getWeatherInfo(for: $0, with: self.units.value)
+            }
             .bind(to: weatherInfo)
             .disposed(by: disposeBag)
     }
@@ -109,6 +122,17 @@ private extension MainViewModel {
         let request = networkManager.getWeatherInfo(for: location, units: units)
             .asObservable()
             .sharedMaterialize()
+        
+        request.errors().bind(to: UIAlertController.rx.error).disposed(by: disposeBag)
+        return request.elements()
+    }
+    
+    func getCurrentLocation() -> Observable<String?> {
+        guard let location = locationManager.exposedLocation else {
+            return .empty()
+        }
+        
+        let request = locationManager.getLocation(for: location).asObservable().sharedMaterialize()
         
         request.errors().bind(to: UIAlertController.rx.error).disposed(by: disposeBag)
         return request.elements()

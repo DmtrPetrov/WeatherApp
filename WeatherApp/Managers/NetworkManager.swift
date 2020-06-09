@@ -41,7 +41,7 @@ class NetworkManager {
                         
                         single(.success(weatherInfo))
                     } else {
-                        single(.error(error ?? NetworkError.unknown))
+                        single(.error(NetworkError.incorrectLocation))
                     }
                 } catch let decodingError {
                     single(.error(decodingError))
@@ -69,12 +69,15 @@ class NetworkManager {
 fileprivate extension NetworkManager {
     enum NetworkError: LocalizedError {
         case invalidUrl
+        case incorrectLocation
         case unknown
         
         var errorDescription: String? {
             switch self {
             case .invalidUrl:
                 return "Invalid request URL"
+            case .incorrectLocation:
+                return "Incorrect location input, please try another"
             case .unknown:
                 return "Unknown error"
             }

@@ -38,6 +38,10 @@
 		<string>Lato-Bold.ttf</string>
 		<string>Lato-Regular.ttf</string>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>WheatherApp need to know your location to get weather data</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>WheatherApp need to know your location to get weather data</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

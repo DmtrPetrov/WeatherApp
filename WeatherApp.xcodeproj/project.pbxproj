@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		205F263D248F112500FAA542 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205F263C248F112500FAA542 /* SearchBar.swift */; };
 		205F263F248F12BA00FAA542 /* SearchBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 205F263E248F12BA00FAA542 /* SearchBar.xib */; };
+		205F2641248F2AC600FAA542 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205F2640248F2AC600FAA542 /* LocationManager.swift */; };
 		20D558B6248E3B7600CA080D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D558B5248E3B7600CA080D /* AppDelegate.swift */; };
 		20D558BF248E3B7800CA080D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20D558BE248E3B7800CA080D /* Assets.xcassets */; };
 		20D558C2248E3B7800CA080D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20D558C0248E3B7800CA080D /* LaunchScreen.storyboard */; };
@@ -52,6 +53,7 @@
 /* Begin PBXFileReference section */
 		205F263C248F112500FAA542 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		205F263E248F12BA00FAA542 /* SearchBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchBar.xib; sourceTree = "<group>"; };
+		205F2640248F2AC600FAA542 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		20D558B2248E3B7600CA080D /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20D558B5248E3B7600CA080D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		20D558BE248E3B7800CA080D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -165,7 +167,7 @@
 				20D558B5248E3B7600CA080D /* AppDelegate.swift */,
 				20D558D7248E3CAA00CA080D /* MainScene */,
 				20D558FD248ECF9D00CA080D /* Models */,
-				20D558E9248E56EA00CA080D /* Networking */,
+				20D558E9248E56EA00CA080D /* Managers */,
 				20D558EE248E5BD500CA080D /* Utils */,
 				20D558F1248E610A00CA080D /* Extensions */,
 				20D558D8248E3CB300CA080D /* Configuration */,
@@ -232,12 +234,13 @@
 			path = TemperatureSwitch;
 			sourceTree = "<group>";
 		};
-		20D558E9248E56EA00CA080D /* Networking */ = {
+		20D558E9248E56EA00CA080D /* Managers */ = {
 			isa = PBXGroup;
 			children = (
 				20D558EA248E56F600CA080D /* NetworkManager.swift */,
+				205F2640248F2AC600FAA542 /* LocationManager.swift */,
 			);
-			path = Networking;
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		20D558EE248E5BD500CA080D /* Utils */ = {
@@ -467,6 +470,7 @@
 				20D55903248ED59900CA080D /* Weather.swift in Sources */,
 				20D55909248EDA1B00CA080D /* Constants.swift in Sources */,
 				20D55914248EEA7600CA080D /* Wind.swift in Sources */,
+				205F2641248F2AC600FAA542 /* LocationManager.swift in Sources */,
 				20D55910248EE5F000CA080D /* UIAlertController+Extensions.swift in Sources */,
 				20D558F9248EA94200CA080D /* MainViewModel.swift in Sources */,
 				20D558F0248E5BE400CA080D /* Identifiable.swift in Sources */,
