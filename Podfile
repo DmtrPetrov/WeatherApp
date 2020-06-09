@@ -10,9 +10,6 @@ target 'WeatherApp' do
   pod 'RxSwift'
   pod 'RxGesture'
   
-  # Networking
-  pod 'Moya'
-  
   target 'WeatherAppTests' do
     inherit! :search_paths
     # Pods for testing
