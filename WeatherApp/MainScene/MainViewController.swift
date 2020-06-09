@@ -134,5 +134,10 @@ private extension MainViewController {
         viewModel.shouldEnableOkButton.asDriver()
             .drive(searchBarView.okButton.rx.isEnabled)
             .disposed(by: disposeBag)
+        
+        viewModel.shouldClearSearchingText.asDriver(onErrorJustReturn: ())
+            .map { "" }
+            .drive(searchBarView.searchTextField.rx.text)
+            .disposed(by: disposeBag)
     }
 }

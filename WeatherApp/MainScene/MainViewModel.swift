@@ -25,6 +25,7 @@ class MainViewModel {
     let pressure = BehaviorRelay<String>(value: "")
     
     //MARK: - Search bar relays
+    let shouldClearSearchingText = PublishRelay<Void>()
     let shouldEnableOkButton = BehaviorRelay<Bool>(value: false)
     let newCityName = BehaviorRelay<String>(value: "")
     let units = BehaviorRelay<Units>(value: .metric)
@@ -41,7 +42,10 @@ class MainViewModel {
         self.locationManager = locationManager
         setupBindings()
         
-        getWeatherInfo()
+        getCurrentLocation()
+            .compactMap { $0 ?? "Moscow" }
+            .map { ($0, .metric) }
+            .flatMap(getWeatherInfo)
             .bind(to: weatherInfo)
             .disposed(by: disposeBag)
     }
@@ -90,7 +94,8 @@ extension MainViewModel {
     private func resetTopViews() {
         shouldHideTopView.accept(false)
         shouldHideSearchView.accept(true)
-        newCityName.accept("")
+        shouldClearSearchingText.accept(())
+        shouldEnableOkButton.accept(false)
     }
 }
 
@@ -118,7 +123,7 @@ private extension MainViewModel {
 // MARK: - Networking
 
 private extension MainViewModel {
-    func getWeatherInfo(for location: String = "Omsk", with units: Units = .metric) -> Observable<WeatherInfo> {
+    func getWeatherInfo(for location: String, with units: Units = .metric) -> Observable<WeatherInfo> {
         let request = networkManager.getWeatherInfo(for: location, units: units)
             .asObservable()
             .sharedMaterialize()
