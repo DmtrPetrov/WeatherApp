@@ -22,7 +22,24 @@ class MainViewController: UIViewController {
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var searchOkButton: UIButton!
     
+    @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var windLabel: UILabel!
+    @IBOutlet weak var humidityLabel: UILabel!
+    @IBOutlet weak var pressureLabel: UILabel!
+    @IBOutlet weak var rainPossibilyLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var temperatureLabel: UILabel!
+    @IBOutlet weak var weatherImage: UIImageView!
+    
+    var viewModel: MainViewModel!
     var disposeBag = DisposeBag()
+    
+    static func initFromNib(viewModel: MainViewModel) -> MainViewController {
+        let vc = MainViewController.initFromNib()
+        vc.viewModel = viewModel
+        
+        return vc
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,12 +50,60 @@ class MainViewController: UIViewController {
             .bind(to: temperatureSwitch.rx.switchTapped)
             .disposed(by: disposeBag)
         
-        changeCityButton.rx.tap
-            .bind { [weak self] in self?.didType("s") }
-            .disposed(by: disposeBag)
+        bindViewModel()
     }
-    
-    func didType(_ text: String) {
-        print(changeCityButton.titleLabel?.font)
+}
+
+// MARK: - Bindings
+
+private extension MainViewController {
+    func bindViewModel() {
+        // MARK: - Inputs binding
+        
+        changeCityButton.rx.tap.asDriver()
+            .drive(onNext: (viewModel.didTapChangeCity))
+            .disposed(by: disposeBag)
+        
+        // MARK: - Outputs binding
+        
+        viewModel.cityName.asDriver()
+            .drive(cityLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.wind.asDriver()
+            .drive(windLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.humidity.asDriver()
+            .drive(humidityLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.pressure.asDriver()
+            .drive(pressureLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.rainPossibility.asDriver()
+            .drive(rainPossibilyLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.weatherDescription.asDriver()
+            .drive(descriptionLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.temperature.asDriver()
+            .drive(temperatureLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.weatherIcon.asDriver()
+            .drive(weatherImage.rx.image)
+            .disposed(by: disposeBag)
+        
+        viewModel.shouldHideTopView.asDriver()
+            .drive(topView.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        viewModel.shouldHideSearchView.asDriver()
+            .drive(searchBarView.rx.isHidden)
+            .disposed(by: disposeBag)
     }
 }

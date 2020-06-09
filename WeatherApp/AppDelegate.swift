@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = UIStoryboard(name: "LaunchScreen", bundle: nil).instantiateInitialViewController()
         window?.makeKeyAndVisible()
         
-        let vc = MainViewController.initFromNib()
+        let vc = MainViewController.initFromNib(viewModel: .init())
         window?.rootViewController = vc
         
         return true

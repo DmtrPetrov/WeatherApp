@@ -21,13 +21,21 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="WeatherApp" customModuleProvider="target">
             <connections>
                 <outlet property="changeCityButton" destination="PJm-QN-bgC" id="f2Y-WF-7Fo"/>
+                <outlet property="cityLabel" destination="0b8-ay-ovx" id="HpY-xO-nmr"/>
                 <outlet property="currentLocationView" destination="vC4-BB-i4C" id="uGc-QI-tYt"/>
+                <outlet property="descriptionLabel" destination="way-Ic-Xvc" id="hm2-Jm-vIt"/>
+                <outlet property="humidityLabel" destination="iKo-Wn-nVw" id="eIv-xw-bV6"/>
+                <outlet property="pressureLabel" destination="MTD-63-TvC" id="vOn-PX-J38"/>
+                <outlet property="rainPossibilyLabel" destination="eBP-dH-h1I" id="gJX-IR-Xi0"/>
                 <outlet property="searchBarView" destination="ZEU-SR-Nsc" id="nu7-uh-9CG"/>
                 <outlet property="searchOkButton" destination="yAg-m2-PQ3" id="DOd-hY-WLv"/>
                 <outlet property="searchTextField" destination="EnI-8o-m7l" id="Y4q-iI-Xsg"/>
+                <outlet property="temperatureLabel" destination="AO2-Q0-zOS" id="p4c-Tn-XXP"/>
                 <outlet property="temperatureSwitch" destination="MTS-sM-kfl" id="bKE-2E-sml"/>
                 <outlet property="topView" destination="Pna-eF-ikQ" id="1wo-Ya-F2j"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="weatherImage" destination="zAe-1c-YIh" id="mxd-Or-Axt"/>
+                <outlet property="windLabel" destination="deH-EP-RC5" id="PAv-Fv-uCh"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -38,7 +46,7 @@
                 <view contentMode="scaleToFill" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Pna-eF-ikQ">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="91"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Омск" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0b8-ay-ovx">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Омск" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0b8-ay-ovx">
                             <rect key="frame" x="20" y="19" width="230" height="36"/>
                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="30"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -278,12 +286,12 @@
                 <view hidden="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="ZEU-SR-Nsc">
                     <rect key="frame" x="20" y="27" width="335" height="53"/>
                     <subviews>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Петропавловск Камчатский" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EnI-8o-m7l">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Введите город" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EnI-8o-m7l">
                             <rect key="frame" x="18" y="18" width="266" height="17"/>
                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yAg-m2-PQ3">
+                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yAg-m2-PQ3">
                             <rect key="frame" x="294" y="18" width="25" height="17"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="25" id="XuX-hI-Q9G"/>
