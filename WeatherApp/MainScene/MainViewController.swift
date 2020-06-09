@@ -82,6 +82,13 @@ private extension MainViewController {
             .drive(onNext: (viewModel.didChangeUnits))
             .disposed(by: disposeBag)
         
+        currentLocationView.rx.tapGesture()
+            .when(.recognized)
+            .map { _ in }
+            .asDriver(onErrorJustReturn: ())
+            .drive(onNext: (viewModel.didTapMyLocation))
+            .disposed(by: disposeBag)
+        
         // MARK: - Outputs binding
         
         viewModel.cityName.asDriver()
