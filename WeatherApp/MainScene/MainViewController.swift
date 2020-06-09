@@ -13,14 +13,11 @@ import RxGesture
 
 class MainViewController: UIViewController {
     @IBOutlet weak var topView: UIView!
-    @IBOutlet weak var searchBarView: UIView!
+    @IBOutlet weak var searchBarView: SearchBar!
     
     @IBOutlet weak var temperatureSwitch: TemperatureSwitch!
     @IBOutlet weak var changeCityButton: UIButton!
     @IBOutlet weak var currentLocationView: UIView!
-    
-    @IBOutlet weak var searchTextField: UITextField!
-    @IBOutlet weak var searchOkButton: UIButton!
     
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var windLabel: UILabel!
@@ -43,14 +40,11 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        temperatureSwitch.rx.tapGesture()
-            .when(.recognized)
-            .map { _ in }
-            .bind(to: temperatureSwitch.rx.switchTapped)
-            .disposed(by: disposeBag)
-        
         bindViewModel()
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 }
 
@@ -61,7 +55,31 @@ private extension MainViewController {
         // MARK: - Inputs binding
         
         changeCityButton.rx.tap.asDriver()
-            .drive(onNext: (viewModel.didTapChangeCity))
+            .drive(onNext: (viewModel.manageTopViews))
+            .disposed(by: disposeBag)
+        
+        searchBarView.searchTextField.rx.controlEvent(.editingDidEnd).asDriver()
+            .drive(onNext: (viewModel.manageTopViews))
+            .disposed(by: disposeBag)
+        
+        searchBarView.searchTextField.rx.text.orEmpty.asDriver()
+            .drive(viewModel.newCityName)
+            .disposed(by: disposeBag)
+        
+        searchBarView.okButton.rx.tap.asDriver()
+            .drive(onNext: (viewModel.didTapOkSearchButton))
+            .disposed(by: disposeBag)
+        
+        temperatureSwitch.rx.tapGesture()
+            .when(.recognized)
+            .map { _ in }
+            .asDriver(onErrorJustReturn: ())
+            .throttle(.milliseconds(300), latest: false)
+            .drive(temperatureSwitch.rx.switchTapped)
+            .disposed(by: disposeBag)
+        
+        temperatureSwitch.selectedUnitsRelay.asDriver(onErrorJustReturn: .metric)
+            .drive(onNext: (viewModel.didChangeUnits))
             .disposed(by: disposeBag)
         
         // MARK: - Outputs binding
@@ -104,6 +122,10 @@ private extension MainViewController {
         
         viewModel.shouldHideSearchView.asDriver()
             .drive(searchBarView.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        viewModel.shouldEnableOkButton.asDriver()
+            .drive(searchBarView.okButton.rx.isEnabled)
             .disposed(by: disposeBag)
     }
 }

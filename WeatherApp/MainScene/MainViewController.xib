@@ -27,9 +27,7 @@
                 <outlet property="humidityLabel" destination="iKo-Wn-nVw" id="eIv-xw-bV6"/>
                 <outlet property="pressureLabel" destination="MTD-63-TvC" id="vOn-PX-J38"/>
                 <outlet property="rainPossibilyLabel" destination="eBP-dH-h1I" id="gJX-IR-Xi0"/>
-                <outlet property="searchBarView" destination="ZEU-SR-Nsc" id="nu7-uh-9CG"/>
-                <outlet property="searchOkButton" destination="yAg-m2-PQ3" id="DOd-hY-WLv"/>
-                <outlet property="searchTextField" destination="EnI-8o-m7l" id="Y4q-iI-Xsg"/>
+                <outlet property="searchBarView" destination="b0W-Gb-zBv" id="NfD-Zo-022"/>
                 <outlet property="temperatureLabel" destination="AO2-Q0-zOS" id="p4c-Tn-XXP"/>
                 <outlet property="temperatureSwitch" destination="MTS-sM-kfl" id="bKE-2E-sml"/>
                 <outlet property="topView" destination="Pna-eF-ikQ" id="1wo-Ya-F2j"/>
@@ -43,6 +41,13 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b0W-Gb-zBv" customClass="SearchBar" customModule="WeatherApp" customModuleProvider="target">
+                    <rect key="frame" x="20" y="27" width="335" height="55"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="55" id="fxm-iM-G17"/>
+                    </constraints>
+                </view>
                 <view contentMode="scaleToFill" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Pna-eF-ikQ">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="91"/>
                     <subviews>
@@ -283,50 +288,21 @@
                         <constraint firstAttribute="trailing" secondItem="eNd-gD-Ufp" secondAttribute="trailing" id="dCq-0J-S5E"/>
                     </constraints>
                 </view>
-                <view hidden="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="ZEU-SR-Nsc">
-                    <rect key="frame" x="20" y="27" width="335" height="53"/>
-                    <subviews>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Введите город" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EnI-8o-m7l">
-                            <rect key="frame" x="18" y="18" width="266" height="17"/>
-                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
-                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yAg-m2-PQ3">
-                            <rect key="frame" x="294" y="18" width="25" height="17"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="25" id="XuX-hI-Q9G"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
-                            <state key="normal" title="OK"/>
-                        </button>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstItem="yAg-m2-PQ3" firstAttribute="leading" secondItem="EnI-8o-m7l" secondAttribute="trailing" constant="10" id="6l0-IY-TxS"/>
-                        <constraint firstItem="EnI-8o-m7l" firstAttribute="top" secondItem="ZEU-SR-Nsc" secondAttribute="top" constant="18" id="7am-FI-IjG"/>
-                        <constraint firstAttribute="height" constant="53" id="EWu-LF-QC4"/>
-                        <constraint firstAttribute="bottom" secondItem="yAg-m2-PQ3" secondAttribute="bottom" constant="18" id="Hs2-8o-7pN"/>
-                        <constraint firstItem="EnI-8o-m7l" firstAttribute="leading" secondItem="ZEU-SR-Nsc" secondAttribute="leading" constant="18" id="IS8-WI-OTY"/>
-                        <constraint firstAttribute="bottom" secondItem="EnI-8o-m7l" secondAttribute="bottom" constant="18" id="ZSH-Eq-9PF"/>
-                        <constraint firstAttribute="trailing" secondItem="yAg-m2-PQ3" secondAttribute="trailing" constant="16" id="px0-Yi-fpv"/>
-                        <constraint firstItem="yAg-m2-PQ3" firstAttribute="top" secondItem="ZEU-SR-Nsc" secondAttribute="top" constant="18" id="ycQ-B1-ejd"/>
-                    </constraints>
-                </view>
             </subviews>
             <color key="backgroundColor" red="0.44705882352941173" green="0.56470588235294117" blue="0.72549019607843135" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Jr4-ZV-7yE" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" constant="-50" id="6fP-10-fkA"/>
                 <constraint firstItem="Pna-eF-ikQ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="CRh-CR-L0L"/>
                 <constraint firstItem="Pna-eF-ikQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="CkM-GT-jJV"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ZEU-SR-Nsc" secondAttribute="trailing" constant="20" id="FlV-r5-Wrv"/>
-                <constraint firstItem="ZEU-SR-Nsc" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="27" id="MLm-fR-sg4"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Pna-eF-ikQ" secondAttribute="trailing" id="N8W-DL-jFm"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="CL4-JD-2gq" secondAttribute="trailing" id="QOm-CD-nQH"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Jr4-ZV-7yE" secondAttribute="trailing" constant="46" id="Xk0-An-iEu"/>
-                <constraint firstItem="ZEU-SR-Nsc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="b6S-x9-9Vv"/>
                 <constraint firstItem="Jr4-ZV-7yE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="46" id="dF0-uO-tke"/>
                 <constraint firstItem="CL4-JD-2gq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="dWN-xo-D8l"/>
+                <constraint firstItem="b0W-Gb-zBv" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="27" id="e5c-9h-E3m"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="CL4-JD-2gq" secondAttribute="bottom" id="hip-R7-Gpm"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="b0W-Gb-zBv" secondAttribute="trailing" constant="20" id="kWu-az-ZlV"/>
+                <constraint firstItem="b0W-Gb-zBv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="zPY-t3-r7p"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="139" y="134"/>

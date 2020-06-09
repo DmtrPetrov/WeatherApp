@@ -15,7 +15,8 @@ class Constants {
     
     // MARK: - Labels
     static let pressure = "мм рт. ст."
-    static let windSpeed = "м/с"
+    static let windSpeedMetric = "м/с"
+    static let windSpeedImperial = "миль/ч"
     static let windNorth = "северный"
     static let windSouth = "южный"
     static let windEast = "восточный"

@@ -19,14 +19,19 @@ class TemperatureSwitch: UIView {
     @IBOutlet weak var fahrenheitView: UIView!
     @IBOutlet weak var fahrenheitLabel: UILabel!
     
-    var celsiusSelected: Bool = true {
-        didSet { updateUI() }
+    var selectedUnitsRelay = PublishRelay<Units>()
+    
+    var selectedUnits: Units = .metric {
+        didSet {
+            selectedUnitsRelay.accept(selectedUnits)
+            updateUI()
+        }
     }
     
     private let selectedColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.2)
     
     private func updateUI() {
-        guard celsiusSelected else {
+        guard selectedUnits == .metric else {
             celsiusView.backgroundColor = .clear
             fahrenheitView.backgroundColor = selectedColor
             
@@ -69,9 +74,8 @@ extension TemperatureSwitch: NibInstantiatiable {
 extension Reactive where Base: TemperatureSwitch {
     var switchTapped: Binder<Void> {
         return Binder(base) { temperatureSwitch, _ in
-            let newValue = !temperatureSwitch.celsiusSelected
-            temperatureSwitch.celsiusSelected = newValue
+            let newValue: Units = temperatureSwitch.selectedUnits == .metric ? .imperial : .metric
+            temperatureSwitch.selectedUnits = newValue
         }
     }
 }
-

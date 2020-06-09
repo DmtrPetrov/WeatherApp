@@ -25,6 +25,11 @@ struct WeatherInfo: Decodable {
 }
 
 extension WeatherInfo {
+    func getWindInfo(units: Units = .metric) -> String {
+        let speed = units == .metric ? Constants.windSpeedMetric : Constants.windSpeedImperial
+        return wind.speed.description + " " + speed + ", " + wind.direction
+    }
+    
     var weatherDescription: String {
         return weatherType.first?.description ?? ""
     }
@@ -35,10 +40,6 @@ extension WeatherInfo {
     
     var pressure: String {
         return NSNumber(value: weather.pressure.rounded()).description + " " + Constants.pressure
-    }
-    
-    var windInfo: String {
-        return wind.speed.description + " " + Constants.windSpeed + ", " + wind.direction
     }
     
     var humidity: String {

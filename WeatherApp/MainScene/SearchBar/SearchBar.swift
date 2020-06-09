@@ -17,9 +17,9 @@ class SearchBar: UIView {
     @IBOutlet weak var okButton: UIButton!
     
     private func setupUI() {
-        layer.masksToBounds = false
+        layer.masksToBounds = true
         layer.cornerRadius = 4
-        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3).cgColor
 
         layer.shadowRadius = 8
         layer.shadowOpacity = 1

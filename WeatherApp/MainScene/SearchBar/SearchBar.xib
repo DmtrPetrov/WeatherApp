@@ -14,42 +14,43 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchBar" customModule="WeatherApp" customModuleProvider="target">
             <connections>
-                <outlet property="contentView" destination="shz-mN-8Ty" id="lKH-8f-E49"/>
-                <outlet property="okButton" destination="ime-C1-w7G" id="atT-xf-Zjh"/>
-                <outlet property="searchTextField" destination="ctI-Tp-CaU" id="hJe-Ks-I3I"/>
+                <outlet property="contentView" destination="6fv-tK-uUu" id="BSp-eD-oPQ"/>
+                <outlet property="okButton" destination="4PD-G5-4Pf" id="X8e-3j-ehK"/>
+                <outlet property="searchTextField" destination="GZf-sp-TK7" id="MzV-iO-G7v"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="shz-mN-8Ty">
-            <rect key="frame" x="0.0" y="0.0" width="302" height="90"/>
+        <view contentMode="scaleToFill" id="6fv-tK-uUu">
+            <rect key="frame" x="0.0" y="0.0" width="282" height="75"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Введите город" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ctI-Tp-CaU">
-                    <rect key="frame" x="18" y="18" width="233" height="54"/>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Введите город" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GZf-sp-TK7">
+                    <rect key="frame" x="18" y="18" width="220" height="39"/>
                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ime-C1-w7G">
-                    <rect key="frame" x="261" y="18" width="25" height="54"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4PD-G5-4Pf">
+                    <rect key="frame" x="248" y="28.5" width="24" height="18"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="25" id="Lhd-qa-dzo"/>
+                        <constraint firstAttribute="height" constant="18" id="h2o-1Y-9SI"/>
+                        <constraint firstAttribute="width" constant="24" id="kF8-1s-yoM"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                     <state key="normal" title="OK"/>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
-                <constraint firstItem="ime-C1-w7G" firstAttribute="leading" secondItem="ctI-Tp-CaU" secondAttribute="trailing" constant="10" id="A3e-Nh-oZZ"/>
-                <constraint firstAttribute="trailing" secondItem="ime-C1-w7G" secondAttribute="trailing" constant="16" id="U2j-oa-6ww"/>
-                <constraint firstAttribute="bottom" secondItem="ctI-Tp-CaU" secondAttribute="bottom" constant="18" id="Vzz-zV-m4R"/>
-                <constraint firstAttribute="bottom" secondItem="ime-C1-w7G" secondAttribute="bottom" constant="18" id="W11-Pb-lxq"/>
-                <constraint firstItem="ctI-Tp-CaU" firstAttribute="leading" secondItem="shz-mN-8Ty" secondAttribute="leading" constant="18" id="ciT-Wa-Qwc"/>
-                <constraint firstItem="ctI-Tp-CaU" firstAttribute="top" secondItem="shz-mN-8Ty" secondAttribute="top" constant="18" id="cjE-Dz-N3h"/>
-                <constraint firstItem="ime-C1-w7G" firstAttribute="top" secondItem="shz-mN-8Ty" secondAttribute="top" constant="18" id="vUF-Yt-ggM"/>
+                <constraint firstItem="4PD-G5-4Pf" firstAttribute="leading" secondItem="GZf-sp-TK7" secondAttribute="trailing" constant="10" id="17f-Ws-BHE"/>
+                <constraint firstItem="8pN-iD-Bri" firstAttribute="trailing" secondItem="4PD-G5-4Pf" secondAttribute="trailing" constant="10" id="9dD-6G-PHa"/>
+                <constraint firstItem="4PD-G5-4Pf" firstAttribute="centerY" secondItem="GZf-sp-TK7" secondAttribute="centerY" id="CBI-VY-KqN"/>
+                <constraint firstItem="GZf-sp-TK7" firstAttribute="leading" secondItem="8pN-iD-Bri" secondAttribute="leading" constant="18" id="Et6-Sp-JAW"/>
+                <constraint firstItem="8pN-iD-Bri" firstAttribute="bottom" secondItem="GZf-sp-TK7" secondAttribute="bottom" constant="18" id="m0k-CF-Uvk"/>
+                <constraint firstItem="GZf-sp-TK7" firstAttribute="top" secondItem="6fv-tK-uUu" secondAttribute="top" constant="18" id="xPn-cU-L5D"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <viewLayoutGuide key="safeArea" id="gaF-er-tUx"/>
-            <point key="canvasLocation" x="805.79710144927537" y="-547.09821428571422"/>
+            <viewLayoutGuide key="safeArea" id="8pN-iD-Bri"/>
+            <point key="canvasLocation" x="879.71014492753625" y="-293.63839285714283"/>
         </view>
     </objects>
 </document>
